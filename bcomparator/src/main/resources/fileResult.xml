@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="fileResult">
+ 
+    <typeAlias alias="RESULT" type="test.bcomparator.FileResult" />
+ 
+    <resultMap id="fileResultMap" class="RESULT">
+        <result property="id" column="ID" />
+        <result property="name" column="NAME" />
+        <result property="bs" column="BLOCK_SIZE" />
+        <result property="fs" column="FILE_SIZE" />
+        <!-- <result property="status" column="STATUS" /> -->
+    </resultMap>
+     
+    <select id="getResultById" parameterClass="java.lang.Integer" resultMap="fileResultMap">
+          SELECT ID, NAME, BLOCK_SIZE, FILE_SIZE FROM FILE WHERE ID = #value#
+    </select>
+     
+    <select id="getMaxId" resultClass="java.lang.Integer">
+          SELECT MAX(ID) FROM FILE
+    </select>
+     
+    <insert id="addResult" parameterClass="RESULT">
+        INSERT INTO FILE (ID, NAME, BLOCK_SIZE, FILE_SIZE)
+         VALUES(#id#,#name#,#bs#,#fs#);
+    </insert>
+     
+    <delete id="deleteUserById" parameterClass="java.lang.Integer">
+          DELETE FROM USERINFO WHERE ID = #value#
+    </delete>
+     
+</sqlMap>

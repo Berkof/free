@@ -1,0 +1,28 @@
+Наброски решения для oDesk задачи https://www.odesk.com/applications/284770382
+
+We are looking for a Java developer to write a simple script to compare the similarity of various data files based on 64KB blocks of data.
+
+The script will run across a series of data files, divide them into 64KB blocks of data, hash the blocks, and then compare all block hashes against all parts of other files recording similarities between each file.
+
+The methodology to do this should be something like this:
+
+- Open a specified folder of files (of any type)
+
+- For each file:
+         o Read in the file as 64KB blocks of data
+         o Hash each block of data to get its MD5
+         o Save the result in a simple MySQL database for quicker 'lookup' later
+         o Continue reading in the data in blocks of 64KB until the end, ('pad' the last block of data to make it up to 64KB if necessary)
+
+- One each file has been hashed, compare how similar each block of data is to each other file and group the together based on similarity (this is why I suggest using MySQL as it will be quicker than reading from a text file especially when thousands of files are tested)
+
+- Group together similar files (we are open to interpretation on how to do this. The aim is so that the user can clearly see similar files, or fragments of the same file)
+
+- We would also like the option to adjust 64KB blocks to any another size based on use input, e.g. 128KB or 32KB etc.
+
+
+The source code must be fully commented, written in Java with all dependencies contained within the source folder, and must be as fast as possible (multithreaded, memory efficient). We are open to suggestions or ideas on how to do this better and how to output the results.
+
+Any questions please ask, we require a developer as soon as possible, further work is guaranteed.
+
+Thanks!
