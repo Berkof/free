@@ -3,7 +3,6 @@ package sudtest;
 import java.util.ArrayList;
 import java.util.List;
 
-import sun.org.mozilla.javascript.ast.Block;
 
 public class Subtest {
 
@@ -68,6 +67,7 @@ public class Subtest {
 				System.exit(1);
 			}
 		}
+		System.out.println("Sudoku is valid");
 	}
 	
 	private static String getErrorBlockStr(Sudoku s) {
